@@ -33,7 +33,6 @@ async def read_index():
         return f.read()
 
 
-
 # 事件监听
 application.add_event_handler("startup", Events.startup(application))
 application.add_event_handler("shutdown", Events.stopping(application))
