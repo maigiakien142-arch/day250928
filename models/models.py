@@ -9,6 +9,7 @@ from datetime import datetime
 from sqlalchemy import JSON, Column
 
 
+# todo 分解模型及各种方法
 class BasicModel(SQLModel):
     create_by: str = Field(description="创建人")
     # 使用SQLModel的Field定义模型字段，使用datetime.utcnow,每次创建新记录时动态生成当前时间
