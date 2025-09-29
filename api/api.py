@@ -12,3 +12,6 @@ api_router = APIRouter()
 
 # 将user.router这个子路由挂载到主路由下
 api_router.include_router(user.router, tags=["用户路由"])
+
+# 添加 server 表的路由
+api_router.include_router(server.router, tags=["服务器路由"])
