@@ -6,6 +6,7 @@
 """
 from fastapi import APIRouter
 from api.endpoints import user
+from api.endpoints import server
 
 # 主路由
 api_router = APIRouter()
