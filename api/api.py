@@ -7,6 +7,7 @@
 from fastapi import APIRouter
 from api.endpoints import user
 from api.endpoints import server
+from api.endpoints import application
 
 # 主路由
 api_router = APIRouter()
@@ -16,3 +17,6 @@ api_router.include_router(user.router, tags=["用户路由"])
 
 # 添加 server 表的路由
 api_router.include_router(server.router, tags=["服务器路由"])
+
+# 添加 application 表的路由
+api_router.include_router(application.router, tags=["申请路由"])
