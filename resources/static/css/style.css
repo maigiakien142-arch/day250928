@@ -1,0 +1,24 @@
+/* Tailwind自定义工具类（原@layer utilities内容） */
+@layer utilities {
+    .card-shadow {
+        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    }
+    .status-online {
+        background-color: #10b981;
+    }
+    .status-offline {
+        background-color: #ef4444;
+    }
+    .chart-container {
+        position: relative;
+        width: 100%;
+        height: 350px; /* 固定图表高度，避免拉伸 */
+    }
+}
+
+/* 若后续需要添加额外本地样式，可在此处扩展 */
+/* 示例：如需调整卡片 hover 效果，可添加：
+.card-shadow:hover {
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+}
+*/
