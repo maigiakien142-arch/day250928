@@ -29,10 +29,10 @@ class Config(BaseConfig):
     CORS_ALLOW_HEADERS: List[str] = ["*"]  # 所有的请求头都允许
 
     # 数据库配置
-    MYSQL_USER: str = "remote_user"
+    MYSQL_USER: str = "root"
     # 密码是Zcd@123456  但是由于@属于特殊字符，需要进行转义处理
     MYSQL_PASSWORD: str = "Zcd%40123456"
-    MYSQL_DATABASE: str = "fastapi"
+    MYSQL_DATABASE: str = "itemTestZcd"
     MYSQL_IP: str = "81.70.188.11"
     MYSQL_PORT: int = 3306
 

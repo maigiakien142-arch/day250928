@@ -1,0 +1,19 @@
+Flask==2.0.1
+Flask-SQLAlchemy==2.5.1
+psutil==5.9.0  # 采集系统性能（服务器端用）
+pymysql==1.0.2 # 连接MySQL（本地+服务器都用）
+pynvml==11.5.0 # 采集GPU信息（可选，服务器端用）
+fastapi~=0.117.1
+aioredis~=2.0.1
+pydantic~=2.10.6
+tortoise~=0.1.1
+starlette~=0.46.1
+requests~=2.32.3
+passlib~=1.7.4
+sqlmodel~=0.0.24
+SQLAlchemy~=2.0.14
+python-dotenv~=1.0.1
+PyJWT~=2.10.1
+shapely~=2.0.7
+uvicorn~=0.34.0
+celery~=5.4.0

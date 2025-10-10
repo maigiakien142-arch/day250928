@@ -6,32 +6,25 @@ time:
 
 from fastapi import FastAPI, HTTPException, exception_handlers
 from fastapi.exceptions import RequestValidationError
-from starlette.responses import HTMLResponse
-from starlette.staticfiles import StaticFiles
 
 from config import settings
 from tortoise.exceptions import OperationalError, DoesNotExist, IntegrityError, ValidationError
 from core import Events, Middleware
 from core import Exceptions
 from core.Router import api_router
-import os
+from pathlib import Path  # 用于生成绝对路径
+from fastapi.staticfiles import StaticFiles  # 导入静态文件服务工具
 
 application = FastAPI(
     debug=settings.APP_DEBUG,
 )
 
-# 新增：配置静态文件目录（托管 dist 下的 CSS、JS 等）
-# 确保 dist 目录在项目根目录，与 main.py 同级
-dist_dir = os.path.join(os.path.dirname(__file__), "dist")
-application.mount("/", StaticFiles(directory=dist_dir, html=True), name="dist")
-
-
-# 新增：前端页面路由（访问根路径时返回 index.html）
-@application.get("/", response_class=HTMLResponse)
-async def read_index():
-    with open(os.path.join(dist_dir, "index.html"), "r", encoding="utf-8") as f:
-        return f.read()
-
+# --------------------- 新增：挂载静态文件 ---------------------
+# 生成静态文件目录的**绝对路径**（避免相对路径歧义）
+static_dir = Path(__file__).parent / "resources" / "static"
+# 将 URL 前缀 `/static` 映射到本地 static_dir 目录
+application.mount("/static", StaticFiles(directory=static_dir.resolve()), name="static")
+# -------------------------------------------------------------
 
 # 事件监听
 application.add_event_handler("startup", Events.startup(application))
