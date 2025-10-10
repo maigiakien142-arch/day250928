@@ -18,7 +18,7 @@ app = FastAPI()
 # 跨域中间件
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://localhost:8080"],  # 可加入监控页面的访问地址（如 http://localhost:8000）
+    allow_origins=["http://127.0.0.1:8000"],  # 可加入监控页面的访问地址（如 http://localhost:8000）
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
