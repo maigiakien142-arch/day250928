@@ -17,6 +17,7 @@ class ServerInfo(SQLModel, table=True):
     cpu_cores: int = Field(nullable=False)  # CPU核心数
     memory_total: float = Field(nullable=False)  # 总内存（字节）
     gpu_count: int = Field(default=0)  # GPU数量
+    ip_address: str = Field(nullable=False)  # 新增：服务器IP地址
 
 
 # 监控服务器性能数据表
