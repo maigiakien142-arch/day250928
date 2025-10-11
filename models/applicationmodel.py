@@ -26,10 +26,10 @@ class GPUServer(str, Enum):
 class Application(BasicModel, table=True):
     application_id: int = Field(primary_key=True, description="申请ID")
     resource_type: str = Field(description="资源类型", max_length=50)
-    urgency_level: UrgencyLevel = Field(default=UrgencyLevel.low, description="紧急程度，0代表低，1代表中，2代表高",index=True)
+    urgency_level: UrgencyLevel = Field(default=UrgencyLevel.low, description="紧急程度",index=True)
     application_title: str = Field(description="申请标题", max_length=255)
     expected_completion: datetime = Field(description="预期完成时间")
-    gpu_server: GPUServer = Field(default=GPUServer.available, description="gpu服务器是否可用，0可用，1代表不可用",index=True)
+    gpu_server: GPUServer = Field(default=GPUServer.available, description="gpu服务器是否可用",index=True)
     start_number: int = Field(description="起始编号")
     description: str = Field(description="描述", max_length=255)
     contribution_score: float = Field(description="贡献得分", max_length=50)
