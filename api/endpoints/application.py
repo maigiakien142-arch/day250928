@@ -49,9 +49,9 @@ async def check_urgency_level(application_id: int):
     application_service.close()
     if application:
         urgency_map = {
-            "0": "低",
-            "1": "中",
-            "2": "高"
+            "low": "低",
+            "medium": "中",
+            "high": "高"
         }
         urgency_text = urgency_map.get(application.urgency_level, "未知紧急程度")
         return ReturnNoneDataModel(
@@ -116,9 +116,9 @@ async def get_applications_by_urgency(urgency_level: str):
     application_service.close()
     if applications:
         urgency_map = {
-            "0": "低",
-            "1": "中",
-            "2": "高"
+            "low": "低",
+            "medium": "中",
+            "high": "高"
         }
         urgency_text = urgency_map.get(urgency_level, "未知")
         return ReturnNoneDataModel(
